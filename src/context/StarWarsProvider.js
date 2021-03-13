@@ -44,17 +44,17 @@ const StarWarsProvider = ({ children }) => {
 
   const filterPlanets = (column, comparison, value) => {
     switch (comparison) {
-    case 'maior que':
+    case 'greater than':
       setFilteredData(filteredData
         .filter((planet) => (
           parseFloat(planet[column]) > parseFloat(value))));
       break;
-    case 'menor que':
+    case 'less than':
       setFilteredData(filteredData
         .filter((planet) => (
           parseFloat(planet[column]) < parseFloat(value))));
       break;
-    case 'igual a':
+    case 'equal to':
       setFilteredData(filteredData
         .filter((planet) => (
           parseFloat(planet[column]) === parseFloat(value))));

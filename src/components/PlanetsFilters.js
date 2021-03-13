@@ -17,43 +17,47 @@ function PlanetsFilters() {
 
   return (
     <div className="filters-container ">
-      <input
-        type="text"
-        data-testid="name-filter"
-        onChange={ handleFilterByName }
-        placeholder="Filter by Name"
-      />
-      <select
-        data-testid="column-filter"
-        onChange={ handleInputColumn }
-      >
-        { optionsFiltered.map((option) => (
-          <option key={ option } value={ option }>{ option }</option>)) }
-      </select>
-      <select
-        data-testid="comparison-filter"
-        onChange={ handleInputComparison }
-      >
-        <option value="maior que">maior que</option>
-        <option value="menor que">menor que</option>
-        <option value="igual a">igual a</option>
-      </select>
-      <input
-        type="number"
-        placeholder="value"
-        data-testid="value-filter"
-        onChange={ handleInputValue }
-      />
-      <button
-        type="button"
-        data-testid="button-filter"
-        onClick={ filterDataButton }
-      >
-        Filter
-      </button>
+      <div className="filter-selector">
+        <input
+          type="text"
+          data-testid="name-filter"
+          onChange={ handleFilterByName }
+          placeholder="Filter by Name"
+        />
+        <select
+          data-testid="column-filter"
+          onChange={ handleInputColumn }
+        >
+          <option value="">Choose column</option>
+          { optionsFiltered.map((option) => (
+            <option key={ option } value={ option }>{ option }</option>)) }
+        </select>
+        <select
+          data-testid="comparison-filter"
+          onChange={ handleInputComparison }
+        >
+          <option value="">Choose comparison</option>
+          <option value="greater than">greater than</option>
+          <option value="less than">less than</option>
+          <option value="equal to">equal to</option>
+        </select>
+        <input
+          type="number"
+          placeholder="value"
+          data-testid="value-filter"
+          onChange={ handleInputValue }
+        />
+        <button
+          type="button"
+          data-testid="button-filter"
+          onClick={ filterDataButton }
+        >
+          Filter
+        </button>
+      </div>
       { filterByNumericValues.length >= ONE
         ? filterByNumericValues.map((filter, index) => (
-          <div data-testid="filter" key={ index }>
+          <div data-testid="filter" key={ index } className="filters">
             <p>
               {`Filter ${index + 1}:
               ${filter.column} ${filter.comparison} ${filter.value}` }
