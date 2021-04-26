@@ -87,6 +87,7 @@ const StarWarsProvider = ({ children }) => {
   useEffect(() => {
     filtersArray
       .forEach((filter) => filterPlanets(filter.column, filter.comparison, filter.value));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filtersArray]);
 
   const deleteFilter = (event) => {
